@@ -12,20 +12,31 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
 
-public class TestAllureSteps {
+public class TestAllureStepsName {
     @BeforeAll
     static void beforeAll() {
         Configuration.browserSize = "1220x880";
         Configuration.holdBrowserOpen = true;
     }
 
-
+    private static final int Issue = 1;
 
     @Test
     void TestLambdaSteps() {
-        WebSteps steps = new WebSteps();
-        steps.openMainPage();
-        steps.openIssue();
-        steps.searchPage();
+        SelenideLogger.addListener("allure", new AllureSelenide());
+
+        step("Открываем страницу гитхаба со своей домашней работой", () -> {
+            open("https://github.com/YuryFedoseev/HW_18_Les11_Allure");
+        });
+
+        step("Переходим на вкладку issues", () -> {
+            $("#issues-tab").click();
+        });
+
+        step("Проверяем наличие нужной записи с номером " + Issue, () -> {
+            $(withText("#"+Issue)).should(Condition.exist);
+        });
+
+
     }
 }
