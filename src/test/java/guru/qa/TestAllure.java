@@ -13,7 +13,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class TestAllure extends TestBase {
 
     @Test
-    void TestIssueSearch() {
+    void testIssueSearch() {
         SelenideLogger.addListener("allure", new AllureSelenide());
         open(baseUrl);
         $("#issues-tab").click();

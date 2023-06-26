@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 public class TestAllureSteps extends TestBase {
 
     @Test
-    void TestLambdaSteps() {
+    void testLambdaSteps() {
         WebSteps steps = new WebSteps();
         steps.openMainPage();
         steps.openIssue();

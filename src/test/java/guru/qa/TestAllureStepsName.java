@@ -16,7 +16,7 @@ public class TestAllureStepsName extends TestBase {
     private static final int Issue = 1;
 
     @Test
-    void TestLambdaSteps() {
+    void testLambdaSteps() {
         SelenideLogger.addListener("allure", new AllureSelenide());
         step("Открываем страницу гитхаба со своей домашней работой", () -> {
             open(baseUrl);
